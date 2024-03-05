@@ -15,9 +15,13 @@ jobs:
         with:
           repository: ionescu007/VisualUefi
           submodules: true
+          path: VisualUefi
 
       - name: Setup msbuild
         uses: microsoft/setup-msbuild@v2
+        
+      - name: Set up NASM
+        uses: ilammy/setup-nasm@v1.5.1
 
       - name: Setup tmate session
         uses: mxschmitt/action-tmate@v3
