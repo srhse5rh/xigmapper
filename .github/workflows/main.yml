@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  workflow_dispatch:
+
+jobs:
+  Build_x64:
+    runs-on: windows-2022
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          repository: ionescu007/VisualUefi
+          submodules: true
+
+      - name: Setup msbuild
+        uses: microsoft/setup-msbuild@v2
+
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: build_x64
+          path: |
+            *
